@@ -17,7 +17,9 @@ class MyState {
 }
 
 class MyStateNotifier extends StateNotifier<MyState> with LocatorMixin {
-  MyStateNotifier() : super(MyState(0));
+  MyStateNotifier() : super(MyState(0)) {
+    read<Logger>().countChanged(0);
+  }
 
   void increment() {
     state = MyState(state.count + 1);
